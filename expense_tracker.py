@@ -11,18 +11,32 @@ def create_expense():
     return expense
 
 
+def display_expense(expenses):
+    for expense in expenses:
+        print("Title    : ", expense["Title"])
+        print("Amount   : ", expense["Amount"])
+        print("Category : ", expense["Category"])
+
+
 def main():
     print("=" * 40)
     print("         Python Expense Tracker")
     print("=" * 40)
     print()
     print("Track and manage your daily expenses!")
+    print()
 
+    # Creating an expense:
     expense = create_expense()
+
+    # creating an empty list to store expenses:
+    expenses = []
+
+    # Adding the created expense to the expense list:
+    expenses.append(expense)
     print("Your expenses are as shown below: ")
-    print("Title:", expense["Title"])
-    print("Amount:", expense["Amount"])
-    print("Category:", expense["Category"])
+
+    display_expense(expenses)
 
 
 if __name__ == "__main__":
