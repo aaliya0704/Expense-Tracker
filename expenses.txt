@@ -1,0 +1,1 @@
+coffee, 430.0, drinkschocolate, 320.0, fooddoughnut, 890.0, foodpens, 430.0, stationarybooks, 67.0, stationarylaptop, 78000.0, electronicsphone, 38000.0, electrtonics

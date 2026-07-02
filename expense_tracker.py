@@ -4,7 +4,8 @@ def display_menu():
     print("2. View Expenses")
     print("3. Calculate total Spendings")
     print("4. Search by category")
-    print("5. Exit")
+    print("5. Save your Expenses")
+    print("6. Exit")
 
 
 def create_expense():
@@ -58,6 +59,39 @@ def search_by_category(expenses):
         print("No expenses found in this category!")
 
 
+def save_expenses(expenses):
+    with (
+        open("expenses.txt", "w") as file
+    ):  # This opens the expenses.txt file in write mode. The with statement automatically closes the file once you are done
+        for expense in (
+            expenses
+        ):  # loop through every expense in the list, with one expense at a time
+            # 1st iteration-> python goes to the 1st expense.
+            file.write(
+                f"{expense['Title']}, {expense['Amount']}, {expense['Category']}"
+            )
+
+            # if the 1st expense is: expense = {
+            # "Title": "Pizza",
+            # "Amount": 450,
+            # "Category": "Food"  }
+            # then python does:
+            # expense["Title"] becomes Pizza
+            # expense["Amount"] becomes 450
+            # expense["Category"] becomes Food
+            # Pyhton writes them to the expenses.txt file as:
+            # file.write("Pizza, 450, Food")
+            # so the file now containes: Pizza, 450, Food
+
+            # 2nd Iteration-> the loop goes back to the start and executes the 2nd expense -> writes that to the file.
+            # 3rd Iteration-> the loop goes back to the start and executes the 3rd expense -> writes it to the file.
+            # 4th Iteration-> the loop goes back to the start and sees if there are any expenses left -> if no, then Loop finishes
+
+        print(
+            "Expenses saved successfully"
+        )  # At the end it prints "expense saved successfully"
+
+
 def main():
     print("=" * 40)
     print("PYTHON EXPENSE TRACKER")
@@ -80,6 +114,9 @@ def main():
         elif choice == "4":
             search_by_category(expenses)
         elif choice == "5":
+            save_expenses(expenses)
+
+        elif choice == "6":
             print("Thank you for using Expense Tracker")
             break
         else:
